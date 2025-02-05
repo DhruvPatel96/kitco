@@ -1,0 +1,37 @@
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - kitco-network
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    image: dhruv961211/kitco-backend:latest  # Using Docker Hub image
+    environment:
+      - MONGO_URI_KITCO=mongodb://mongodb:27017/kitco
+      - MONGO_URI_NEWS=mongodb://mongodb:27017/news_database
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    networks:
+      - kitco-network
+
+  frontend:
+    image: dhruv961211/kitco-frontend:latest  # Using Docker Hub image
+    ports:
+      - "3000:3000"
+    networks:
+      - kitco-network
+    depends_on:
+      - backend
+
+networks:
+  kitco-network:
+    driver: bridge
+
+volumes:
+  mongo_data:
