@@ -149,6 +149,11 @@ The system integrates:
    npm install
    ```
 
+## NOTE -> THIS SET-UP NEEDS A MONGO-DB (Docker Recommended) TO STORE APIs, NEWS ARTICLES AND FEEDBACK
+```bash
+docker run --name MongoDB -d -p 27017:27017 mongo
+```
+
 ### Docker & Docker Compose
 
 A **top-level** `docker-compose.yml` is included at the root to orchestrate:
