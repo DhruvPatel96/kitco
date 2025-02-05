@@ -215,22 +215,3 @@ Frontend environment variables might include environment-specific API URLs (deve
 
 ---
 
-## 8. Testing
-
-- **Backend Tests**:
-
-  ```bash
-  # Inside /BackEnd:
-  pytest app/tests
-  ```
-
-  - e.g., `test_endpoints.py` checks endpoint responses and basic validation.
-
-- **Frontend Tests** (if applicable, e.g., Jest, Cypress):
-
-  ```bash
-  # Inside /FrontEnd:
-  npm run test
-  ```
-
----
