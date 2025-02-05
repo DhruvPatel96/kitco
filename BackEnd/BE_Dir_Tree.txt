@@ -1,0 +1,271 @@
+.
+├── BE_Dir_Tree.txt
+├── Dockerfile
+├── app
+│   ├── __pycache__
+│   │   ├── api_key_manager.cpython-312.pyc
+│   │   └── config.cpython-312.pyc
+│   ├── api_key_manager.py
+│   ├── config.py
+│   ├── docker
+│   ├── faiss_index.index
+│   ├── main.py
+│   ├── models
+│   │   ├── __pycache__
+│   │   │   ├── faiss_indexer.cpython-312.pyc
+│   │   │   ├── llm_loader.cpython-312.pyc
+│   │   │   ├── prompt_engineer.cpython-312.pyc
+│   │   │   └── retrieval.cpython-312.pyc
+│   │   ├── faiss_indexer.py
+│   │   ├── llm_loader.py
+│   │   ├── prompt_engineer.py
+│   │   └── retrieval.py
+│   ├── routers
+│   │   ├── __pycache__
+│   │   │   ├── anchors.cpython-312.pyc
+│   │   │   ├── editorial.cpython-312.pyc
+│   │   │   ├── feedback.cpython-312.pyc
+│   │   │   ├── marketing.cpython-312.pyc
+│   │   │   ├── social.cpython-312.pyc
+│   │   │   └── video.cpython-312.pyc
+│   │   ├── anchors.py
+│   │   ├── editorial.py
+│   │   ├── feedback.py
+│   │   ├── marketing.py
+│   │   ├── social.py
+│   │   └── video.py
+│   ├── services
+│   │   ├── __pycache__
+│   │   │   ├── news_fetcher.cpython-312.pyc
+│   │   │   ├── post_processor.cpython-312.pyc
+│   │   │   └── regeneration.cpython-312.pyc
+│   │   ├── news_fetcher.py
+│   │   ├── post_processor.py
+│   │   └── regeneration.py
+│   ├── tests
+│   │   └── test_endpoints.py
+│   └── utils
+│       ├── __pycache__
+│       │   └── security.cpython-312.pyc
+│       └── security.py
+├── bitsandbytes
+│   ├── CHANGELOG.md
+│   ├── CMakeLists.txt
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CONTRIBUTING.md
+│   ├── LICENSE
+│   ├── NOTICE.md
+│   ├── README.md
+│   ├── _typos.toml
+│   ├── benchmarking
+│   │   ├── README.md
+│   │   ├── inference_benchmark.py
+│   │   ├── int8
+│   │   │   ├── int8_benchmark.py
+│   │   │   ├── row_scale_benchmark.py
+│   │   │   └── training_benchmark.py
+│   │   ├── matmul_benchmark.py
+│   │   └── switchback
+│   │       ├── README.md
+│   │       ├── info_a100_py2.jsonl
+│   │       ├── make_plot_with_jsonl.py
+│   │       ├── plot_with_info.pdf
+│   │       └── speed_benchmark.py
+│   ├── bitsandbytes
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   ├── autograd
+│   │   │   ├── __init__.py
+│   │   │   └── _functions.py
+│   │   ├── cextension.py
+│   │   ├── consts.py
+│   │   ├── cuda_specs.py
+│   │   ├── diagnostics
+│   │   │   ├── __init__.py
+│   │   │   ├── cuda.py
+│   │   │   ├── main.py
+│   │   │   └── utils.py
+│   │   ├── functional.py
+│   │   ├── nn
+│   │   │   ├── __init__.py
+│   │   │   ├── modules.py
+│   │   │   └── triton_based_modules.py
+│   │   ├── optim
+│   │   │   ├── __init__.py
+│   │   │   ├── adagrad.py
+│   │   │   ├── adam.py
+│   │   │   ├── adamw.py
+│   │   │   ├── ademamix.py
+│   │   │   ├── lamb.py
+│   │   │   ├── lars.py
+│   │   │   ├── lion.py
+│   │   │   ├── optimizer.py
+│   │   │   ├── rmsprop.py
+│   │   │   └── sgd.py
+│   │   ├── research
+│   │   │   ├── __init__.py
+│   │   │   ├── autograd
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── _functions.py
+│   │   │   └── nn
+│   │   │       ├── __init__.py
+│   │   │       └── modules.py
+│   │   ├── triton
+│   │   │   ├── __init__.py
+│   │   │   ├── dequantize_rowwise.py
+│   │   │   ├── int8_matmul_mixed_dequantize.py
+│   │   │   ├── int8_matmul_rowwise_dequantize.py
+│   │   │   ├── matmul_perf_model.py
+│   │   │   ├── quantize_columnwise_and_transpose.py
+│   │   │   ├── quantize_global.py
+│   │   │   ├── quantize_rowwise.py
+│   │   │   └── triton_utils.py
+│   │   └── utils.py
+│   ├── bitsandbytes.egg-info
+│   │   ├── PKG-INFO
+│   │   ├── SOURCES.txt
+│   │   ├── dependency_links.txt
+│   │   ├── requires.txt
+│   │   └── top_level.txt
+│   ├── build
+│   │   ├── bdist.macosx-11.1-arm64
+│   │   └── lib.macosx-11.1-arm64-cpython-312
+│   │       └── bitsandbytes
+│   │           ├── __init__.py
+│   │           ├── __main__.py
+│   │           ├── autograd
+│   │           │   ├── __init__.py
+│   │           │   └── _functions.py
+│   │           ├── cextension.py
+│   │           ├── consts.py
+│   │           ├── cuda_specs.py
+│   │           ├── diagnostics
+│   │           │   ├── __init__.py
+│   │           │   ├── cuda.py
+│   │           │   ├── main.py
+│   │           │   └── utils.py
+│   │           ├── functional.py
+│   │           ├── nn
+│   │           │   ├── __init__.py
+│   │           │   ├── modules.py
+│   │           │   └── triton_based_modules.py
+│   │           ├── optim
+│   │           │   ├── __init__.py
+│   │           │   ├── adagrad.py
+│   │           │   ├── adam.py
+│   │           │   ├── adamw.py
+│   │           │   ├── ademamix.py
+│   │           │   ├── lamb.py
+│   │           │   ├── lars.py
+│   │           │   ├── lion.py
+│   │           │   ├── optimizer.py
+│   │           │   ├── rmsprop.py
+│   │           │   └── sgd.py
+│   │           ├── research
+│   │           │   ├── __init__.py
+│   │           │   ├── autograd
+│   │           │   │   ├── __init__.py
+│   │           │   │   └── _functions.py
+│   │           │   └── nn
+│   │           │       ├── __init__.py
+│   │           │       └── modules.py
+│   │           ├── triton
+│   │           │   ├── __init__.py
+│   │           │   ├── dequantize_rowwise.py
+│   │           │   ├── int8_matmul_mixed_dequantize.py
+│   │           │   ├── int8_matmul_rowwise_dequantize.py
+│   │           │   ├── matmul_perf_model.py
+│   │           │   ├── quantize_columnwise_and_transpose.py
+│   │           │   ├── quantize_global.py
+│   │           │   ├── quantize_rowwise.py
+│   │           │   └── triton_utils.py
+│   │           └── utils.py
+│   ├── check_bnb_install.py
+│   ├── csrc
+│   │   ├── common.cpp
+│   │   ├── common.cuh
+│   │   ├── common.h
+│   │   ├── cpu_ops.cpp
+│   │   ├── cpu_ops.h
+│   │   ├── kernels.cu
+│   │   ├── kernels.cuh
+│   │   ├── mps_kernels.metal
+│   │   ├── mps_ops.h
+│   │   ├── mps_ops.mm
+│   │   ├── ops.cu
+│   │   ├── ops.cuh
+│   │   └── pythonInterface.cpp
+│   ├── deploy.sh
+│   ├── dist
+│   │   └── bitsandbytes-0.45.1-py3.12-macosx-11.1-arm64.egg
+│   ├── docs
+│   │   └── source
+│   │       ├── _toctree.yml
+│   │       ├── algorithms.mdx
+│   │       ├── contributing.mdx
+│   │       ├── errors.mdx
+│   │       ├── explanations
+│   │       │   ├── optimizers.mdx
+│   │       │   └── resources.mdx
+│   │       ├── faqs.mdx
+│   │       ├── fsdp_qlora.md
+│   │       ├── index.mdx
+│   │       ├── installation.mdx
+│   │       ├── integrations.mdx
+│   │       ├── non_cuda_backends.mdx
+│   │       ├── optimizers.mdx
+│   │       ├── quickstart.mdx
+│   │       └── reference
+│   │           ├── functional.mdx
+│   │           ├── nn
+│   │           │   ├── embeddings.mdx
+│   │           │   ├── linear4bit.mdx
+│   │           │   └── linear8bit.mdx
+│   │           └── optim
+│   │               ├── adagrad.mdx
+│   │               ├── adam.mdx
+│   │               ├── adamw.mdx
+│   │               ├── ademamix.mdx
+│   │               ├── lamb.mdx
+│   │               ├── lars.mdx
+│   │               ├── lion.mdx
+│   │               ├── optim_overview.mdx
+│   │               ├── rmsprop.mdx
+│   │               └── sgd.mdx
+│   ├── environment-bnb.yml
+│   ├── environment.yml
+│   ├── examples
+│   │   └── int8_inference_huggingface.py
+│   ├── include
+│   │   ├── AAlloc.h
+│   │   ├── Algo-Direct-Common.h
+│   │   ├── Algo-Direct2.h
+│   │   ├── AlgoXCodes.h
+│   │   ├── BinAlgo.h
+│   │   ├── BinSearch.h
+│   │   ├── Portable.h
+│   │   ├── SIMD.h
+│   │   └── Type.h
+│   ├── install_cuda.py
+│   ├── install_cuda.sh
+│   ├── pyproject.toml
+│   ├── scripts
+│   │   └── stale.py
+│   ├── setup.py
+│   └── tests
+│       ├── __init__.py
+│       ├── conftest.py
+│       ├── helpers.py
+│       ├── test_autograd.py
+│       ├── test_cuda_setup_evaluator.py
+│       ├── test_functional.py
+│       ├── test_generation.py
+│       ├── test_linear4bit.py
+│       ├── test_linear8bitlt.py
+│       ├── test_modules.py
+│       ├── test_optim.py
+│       └── test_triton.py
+├── docker-compose.yml
+└── requirements.txt
+
+51 directories, 218 files

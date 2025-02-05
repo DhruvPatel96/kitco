@@ -1,0 +1,82 @@
+### FRONTEND (FrontEnd) - Next.js ###
+# Dependencies
+FrontEnd/node_modules/
+FrontEnd/package-lock.json
+FrontEnd/pnpm-lock.yaml
+FrontEnd/yarn.lock
+
+# Next.js build output
+FrontEnd/.next/
+FrontEnd/out/
+
+# Environment variables
+FrontEnd/.env.local
+FrontEnd/.env.development.local
+FrontEnd/.env.test.local
+FrontEnd/.env.production.local
+
+# Logs
+FrontEnd/npm-debug.log*
+FrontEnd/yarn-debug.log*
+FrontEnd/yarn-error.log*
+FrontEnd/pnpm-debug.log*
+
+# Editor & OS-specific files
+FrontEnd/.vscode/
+FrontEnd/.idea/
+FrontEnd/.DS_Store
+FrontEnd/Thumbs.db
+
+# TypeScript cache
+FrontEnd/*.tsbuildinfo
+
+# Lint and formatting caches
+FrontEnd/.eslintcache
+FrontEnd/.prettier-cache
+
+# Coverage reports
+FrontEnd/coverage/
+
+# Docker related
+FrontEnd/docker-compose.override.yml
+
+
+### BACKEND (BackEnd) - FastAPI ###
+# Byte-compiled / optimized / DLL files
+BackEnd/__pycache__/
+BackEnd/**/*.pyc
+BackEnd/**/*.pyo
+BackEnd/**/*.pyd
+BackEnd/*.py[cod]
+BackEnd/*.so
+
+# Virtual environment
+BackEnd/venv/
+BackEnd/.env
+BackEnd/.env.local
+BackEnd/*.env
+
+# Logs
+BackEnd/logs/
+BackEnd/*.log
+BackEnd/nohup.out
+
+# OS and editor files
+BackEnd/.vscode/
+BackEnd/.idea/
+BackEnd/.DS_Store
+BackEnd/Thumbs.db
+
+# Testing
+BackEnd/.coverage
+BackEnd/htmlcov/
+BackEnd/pytest_cache/
+BackEnd/junit.xml
+
+# Docker related
+BackEnd/docker-compose.override.yml
+
+# FastAPI specific
+BackEnd/*.db
+BackEnd/instance/
+BackEnd/*.sqlite3
