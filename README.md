@@ -63,65 +63,72 @@ The system integrates:
 
 ---
 
-## 3. Repository Structure
 
-Below is an abbreviated view of the file tree (refer to `full_project_dir_tree.txt` for a comprehensive listing):
-.
-├── BackEnd
-│   ├── BE_Dir_Tree.txt
-│   ├── Dockerfile
-│   ├── app
-│   │   ├── api_key_manager.py
-│   │   ├── config.py
-│   │   ├── faiss_index.index
-│   │   ├── main.py
-│   │   ├── models
-│   │   │   ├── faiss_indexer.py
-│   │   │   ├── llm_loader.py
-│   │   │   ├── prompt_engineer.py
-│   │   │   └── retrieval.py
-│   │   ├── routers
-│   │   │   ├── anchors.py
-│   │   │   ├── editorial.py
-│   │   │   ├── feedback.py
-│   │   │   ├── marketing.py
-│   │   │   ├── social.py
-│   │   │   └── video.py
-│   │   ├── services
-│   │   │   ├── news_fetcher.py
-│   │   │   ├── post_processor.py
-│   │   │   └── regeneration.py
-│   │   ├── tests
-│   │   │   └── test_endpoints.py
-│   │   └── utils
-│   │       └── security.py
-│   ├── docker-compose.yml
-│   └── requirements.txt
-├── FrontEnd
-│   ├── Dockerfile
-│   ├── FE_Dir_Tree.txt
-│   ├── README.md
-│   ├── app
-│   │   ├── favicon.ico
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── eslint.config.mjs
-│   ├── next-env.d.ts
-│   ├── next.config.ts
-│   ├── package.json
-│   ├── postcss.config.mjs
-│   ├── public
-│   │   ├── file.svg
-│   │   ├── globe.svg
-│   │   ├── next.svg
-│   │   ├── vercel.svg
-│   │   └── window.svg
-│   ├── tailwind.config.ts
-│   └── tsconfig.json
-├── README.md
-├── docker-compose.yml
-└── full_project_dir_tree.txt
+### BackEnd Folder Structure
 
-11 directories, 45 files
+- **Dockerfile**: Builds the FastAPI backend container.  
+- **docker-compose.yml** (within `BackEnd`): An optional compose file specific to the backend.  
+- **requirements.txt**: Python dependencies for FastAPI, Transformers, FAISS, etc.  
+- **app/**  
+  - **main.py**: Entry point for the FastAPI application.  
+  - **config.py**: Reads environment variables, sets up configuration via Pydantic.  
+  - **api_key_manager.py**: API key generation and validation logic.  
+  - **faiss_index.index**: FAISS index file (binary) for quick retrieval.  
+  - **models/**  
+    - **faiss_indexer.py**: Utilities for building and saving FAISS indices.  
+    - **llm_loader.py**: Loads and caches the language model (Hugging Face).  
+    - **prompt_engineer.py**: Prompt templates for editorial, video, marketing, etc.  
+    - **retrieval.py**: Retrieves relevant articles from FAISS for context-based generation.  
+  - **routers/**  
+    - **editorial.py**, **video.py**, **anchors.py**, **marketing.py**, **social.py**: Specialized endpoints for each team’s content generation.  
+    - **feedback.py**: Endpoint to submit feedback and optionally trigger content regeneration.  
+  - **services/**  
+    - **news_fetcher.py**: Pulls articles from NewsAPI.org, stores them in MongoDB.  
+    - **post_processor.py**: Functions for cleaning and formatting generated text.  
+    - **regeneration.py**: Logic to regenerate content based on user feedback.  
+  - **tests/**  
+    - **test_endpoints.py**: Basic FastAPI integration tests.  
+  - **utils/**  
+    - **security.py**: Additional security layers, e.g., `api_key_dependency`.
 
+### FrontEnd Folder Structure
+
+- **Dockerfile**: Builds the Next.js frontend container.  
+- **README.md** (within `FrontEnd`): Possibly a focused guide for the front-end.  
+- **package.json**: Lists Node.js dependencies (React, Next.js, Tailwind, etc.).  
+- **app/**  
+  - **layout.tsx** & **page.tsx**: The main layout and home page for content generation UI.  
+  - **globals.css**: Tailwind / general CSS.  
+- **public/**: Static assets (svgs, icons, etc.).  
+- **tsconfig.json**: TypeScript configuration.  
+- **eslint.config.mjs**, **postcss.config.mjs**, **tailwind.config.ts**: Front-end configuration files.
+
+---
+
+## 3. Tech Stack
+
+- **Backend**  
+  - [FastAPI](https://fastapi.tiangolo.com/)  
+  - [Transformers (Hugging Face)](https://github.com/huggingface/transformers)  
+  - [Sentence Transformers](https://www.sbert.net/) + [FAISS](https://github.com/facebookresearch/faiss)  
+  - [MongoDB](https://www.mongodb.com/)  
+
+- **Frontend**  
+  - [Next.js](https://nextjs.org/)  
+  - [React](https://reactjs.org/)  
+  - [Tailwind CSS](https://tailwindcss.com/)  
+
+- **Containerization**  
+  - [Docker](https://www.docker.com/) + [Docker Compose](https://docs.docker.com/compose/)
+
+---
+
+## 4. Setup & Installation
+
+### Local Environment
+
+1. **Clone** the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/kitco-ai-content-gateway.git
+   cd kitco-ai-content-gateway
