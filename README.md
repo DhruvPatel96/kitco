@@ -178,7 +178,7 @@ docker-compose up --build
 
 ## 6. Usage
 
-1. **Generate an API key** (optional, if you have admin privileges):
+1. **Generate an API key** (Essential):
 
    ```bash
    curl -X POST http://localhost:8000/api/v1/admin/generate-api-key \
@@ -186,6 +186,15 @@ docker-compose up --build
    ```
 
    - Store the returned `api_key` for future requests.
+
+1.1 **Get an API key** (For Accessing other APIs):
+```bash
+curl -X 'GET' \
+  'http://0.0.0.0:8000/api/v1/admin/list-api-keys' \
+  -H 'accept: application/json' \
+  -H 'X-Admin-Secret: admin-secret-2025'
+```
+
 
 2. **Create or update content**:
 
