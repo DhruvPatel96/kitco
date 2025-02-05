@@ -66,4 +66,62 @@ The system integrates:
 ## 3. Repository Structure
 
 Below is an abbreviated view of the file tree (refer to `full_project_dir_tree.txt` for a comprehensive listing):
+.
+├── BackEnd
+│   ├── BE_Dir_Tree.txt
+│   ├── Dockerfile
+│   ├── app
+│   │   ├── api_key_manager.py
+│   │   ├── config.py
+│   │   ├── faiss_index.index
+│   │   ├── main.py
+│   │   ├── models
+│   │   │   ├── faiss_indexer.py
+│   │   │   ├── llm_loader.py
+│   │   │   ├── prompt_engineer.py
+│   │   │   └── retrieval.py
+│   │   ├── routers
+│   │   │   ├── anchors.py
+│   │   │   ├── editorial.py
+│   │   │   ├── feedback.py
+│   │   │   ├── marketing.py
+│   │   │   ├── social.py
+│   │   │   └── video.py
+│   │   ├── services
+│   │   │   ├── news_fetcher.py
+│   │   │   ├── post_processor.py
+│   │   │   └── regeneration.py
+│   │   ├── tests
+│   │   │   └── test_endpoints.py
+│   │   └── utils
+│   │       └── security.py
+│   ├── docker-compose.yml
+│   └── requirements.txt
+├── FrontEnd
+│   ├── Dockerfile
+│   ├── FE_Dir_Tree.txt
+│   ├── README.md
+│   ├── app
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── eslint.config.mjs
+│   ├── next-env.d.ts
+│   ├── next.config.ts
+│   ├── package.json
+│   ├── postcss.config.mjs
+│   ├── public
+│   │   ├── file.svg
+│   │   ├── globe.svg
+│   │   ├── next.svg
+│   │   ├── vercel.svg
+│   │   └── window.svg
+│   ├── tailwind.config.ts
+│   └── tsconfig.json
+├── README.md
+├── docker-compose.yml
+└── full_project_dir_tree.txt
+
+11 directories, 45 files
 
