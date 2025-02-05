@@ -132,3 +132,105 @@ The system integrates:
    ```bash
    git clone https://github.com/yourusername/kitco-ai-content-gateway.git
    cd kitco-ai-content-gateway
+
+2. **Install** dependencies for the backend (Python 3.9+ recommended):
+
+   ```bash
+   cd BackEnd
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+3. **Install** dependencies for the frontend (Node v16+ recommended):
+
+   ```bash
+   cd ../FrontEnd
+   npm install
+   ```
+
+### Docker & Docker Compose
+
+A **top-level** `docker-compose.yml` is included at the root to orchestrate:
+
+- **mongodb** (for storing articles, API keys, feedback)  
+- **backend** (FastAPI)  
+- **frontend** (Next.js)
+
+**Steps**:
+
+```bash
+# From the project root:
+docker-compose up --build
+```
+
+- **Backend**: [http://localhost:8000](http://localhost:8000)  
+- **Frontend**: [http://localhost:3000](http://localhost:3000)
+
+> You can also use the separate `BackEnd/docker-compose.yml` if you only want to run the backend, but the root-level Docker Compose is typically preferred.
+
+---
+
+## 6. Usage
+
+1. **Generate an API key** (optional, if you have admin privileges):
+
+   ```bash
+   curl -X POST http://localhost:8000/api/v1/admin/generate-api-key \
+        -H "X-Admin-Secret: admin-secret-2025"
+   ```
+
+   - Store the returned `api_key` for future requests.
+
+2. **Create or update content**:
+
+   - **Editorial endpoint**: `POST /api/v1/generate/editorial`  
+   - **Video endpoint**: `POST /api/v1/generate/video`  
+   - **Anchors endpoint**: `POST /api/v1/generate/anchors`  
+   - **Marketing endpoint**: `POST /api/v1/generate/marketing`  
+   - **Social endpoint**: `POST /api/v1/generate/social`
+
+   Each requires `X-API-Key` in the header.
+
+3. **Feedback**:
+
+   - `POST /api/v1/feedback`  
+   - If `feedback == "bad"`, the system regenerates output using your extra prompt instructions.
+
+See the built-in [FastAPI docs](http://localhost:8000/docs) once the backend is running locally for more details and interactive testing.
+
+---
+
+## 7. Environment Variables
+
+Key environment variables (see also **`app/config.py`** in the backend):
+
+- `MONGO_URI_KITCO` – MongoDB connection string for storing API keys, feedback, etc.  
+- `MONGO_URI_NEWS` – MongoDB connection string for storing fetched news articles.  
+- `admin_secret` – Header used to generate new API keys.  
+- `api_key` – Default fallback key for authorized requests.  
+- `news_api_key` – If using NewsAPI.org for fetching articles.
+
+Frontend environment variables might include environment-specific API URLs (development vs production).
+
+---
+
+## 8. Testing
+
+- **Backend Tests**:
+
+  ```bash
+  # Inside /BackEnd:
+  pytest app/tests
+  ```
+
+  - e.g., `test_endpoints.py` checks endpoint responses and basic validation.
+
+- **Frontend Tests** (if applicable, e.g., Jest, Cypress):
+
+  ```bash
+  # Inside /FrontEnd:
+  npm run test
+  ```
+
+---
